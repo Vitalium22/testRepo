@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Js Learn</title>
+    </head>
+    <body>
+        <div id="box1"></div>
+        <script>
+            let promise = new Promise( resolve => {
+                setTimeout(() => {
+                    let div = document.createElement('div');
+                    div.className = 'circle';
+                    document.body.append(div);
+                    resolve(div);
+                },2000)
+            });
+            promise.then( div => {
+                div.style.borderRadius = "50%";
+                div.style.background = "red";
+                div.style.height = "100px";
+                div.style.width = "100px";
+            })
+            .finally(() => { console.log('Круг создан');});
+        </script>
+    </body>
+</html>
